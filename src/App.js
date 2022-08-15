@@ -14,9 +14,9 @@ function App() {
 
   const taskNodes = tasks.map((task, index) => {
     return <li key={index}>
-      <span>{task.name}</span>
+      <span>{task.name} <span>{task.priority}</span></span>
       {/* {task.priority ? <button className="high">High!</button>: <button className="" onClick={() => {taskPriority(index)}} >Low</button>} */}
-      {task.priority ? <div className="high">High</div> : <div className="low">Low</div>}
+      {/* {task.priority ? <div className="high">High</div> : <div className="low">Low</div>} */}
       
       </li>
   })
