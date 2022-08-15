@@ -9,7 +9,7 @@ function App() {
     {name: "Phone Dentist", priority: "high"}
   ])
 
-  const [newTask, setNewTask] = useState("");
+  const [newTask, setNewTask] = useState("");   //making new state so can have a new task/priority, then gives a new function. Can use that function to update empty state with whatever value we give it. Then later can push that value into original array by using function given with original state.
   const [newPriority, setNewPriority] = useState("");
 
   const taskNodes = tasks.map((task, index) => {
@@ -21,12 +21,12 @@ function App() {
       </li>
   })
 
-  const handleTaskInput = (event) => {
+  const handleTaskInput = (event) => {   //anonymous function so only renders during callback when submitting form?
     setNewTask(event.target.value);
   }
 
-  const handleTaskPriority = (event) => {
-    setNewPriority(event.target.value);
+  const handleTaskPriority = (event) => {   //setNewPriority is function, taking th value of what is being passed in the form(in this case for priority radio buttons). Function used to update value of newPriority.
+    setNewPriority(event.target.value);    //when calling the function, with new value, it will update the state
   }
 
 
@@ -38,11 +38,11 @@ function App() {
     setNewTask("");
   }
 
-  const taskPriority = (index) => {
-    const copyTasks = [...tasks];
-    copyTasks[index].priority = true;
-    setNewPriority(copyTasks)
-  }
+  // const taskPriority = (index) => {
+  //   const copyTasks = [...tasks];
+  //   copyTasks[index].priority = true;
+  //   setNewPriority(copyTasks)
+  // }
 
 
   return (
@@ -50,8 +50,11 @@ function App() {
       <h1>Task List</h1>
       <hr></hr>
 
+
+      {/* not sure why label has htmlFor, took it out and seems to make no */}
+
       <form onSubmit={saveNewTask}>
-        <label htmlFor="new-task">Add Task:</label>
+        <label htmlFor="new-task">Add Task:</label>  
         <input id="new-task" type="text" value={newTask} onChange={handleTaskInput} ></input>
         <input type="submit" value="Save New task" ></input>
         <input type="radio" value="High" name="priority"  onChange={handleTaskPriority}></input>High
