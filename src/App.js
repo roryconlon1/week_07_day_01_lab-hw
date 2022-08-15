@@ -14,7 +14,10 @@ function App() {
 
   const taskNodes = tasks.map((task, index) => {
     return <li key={index}>
-      <span>{task.name} {task.priority}</span>
+      <span>{task.name}</span>
+      {/* {task.priority ? <button className="high">High!</button>: <button className="" onClick={() => {taskPriority(index)}} >Low</button>} */}
+      {task.priority ? <div className="high">High</div> : <div className="low">Low</div>}
+      
       </li>
   })
 
@@ -33,6 +36,12 @@ function App() {
     copyTasks.push({name: newTask, priority: newPriority})
     setTasks(copyTasks);
     setNewTask("");
+  }
+
+  const taskPriority = (index) => {
+    const copyTasks = [...tasks];
+    copyTasks[index].priority = true;
+    setNewPriority(copyTasks)
   }
 
 
