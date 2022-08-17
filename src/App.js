@@ -4,19 +4,21 @@ import React, {useState} from 'react';
 function App() {
 
   const [tasks, setTasks] = useState([
-    {name: "Walk Dog", priority: "high"}, 
-    {name: "Water Plant", priority:"low"},
-    {name: "Phone Dentist", priority: "high"}
+    {name: "Walk Dog", priority: "High"}, 
+    {name: "Water Plant", priority:"Low"},
+    {name: "Phone Dentist", priority: "High"}
   ])
 
   const [newTask, setNewTask] = useState("");   //making new state so can have a new task/priority, then gives a new function. Can use that function to update empty state with whatever value we give it. Then later can push that value into original array by using function given with original state.
   const [newPriority, setNewPriority] = useState("");
 
   const taskNodes = tasks.map((task, index) => {
-    return <li key={index}>
+    return <li key={index}
+    className={task.priority === "High" ? "priorityHigh": "priorityLow"}>
       <span>{task.name} <span>{task.priority}</span></span>
       {/* {task.priority ? <button className="high">High!</button>: <button className="" onClick={() => {taskPriority(index)}} >Low</button>} */}
       {/* {task.priority ? <div className="high">High</div> : <div className="low">Low</div>} */}
+      
       
       </li>
   })

@@ -41,3 +41,11 @@ form.high {
   border: 2px solid #1a681e;
   color: #1a681e;
 }
+
+.priorityHigh {
+  border: 2px solid red;
+}
+
+.priorityLow {
+  border: 2px solid green;
+}
